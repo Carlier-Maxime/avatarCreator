@@ -1,12 +1,11 @@
 #include <QApplication>
-#include <QtWidgets>
+#include "MainWindow.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
 
-	QMainWindow mainWindow;
-	mainWindow.setWindowState(Qt::WindowMaximized);
+	MainWindow mainWindow;
 	mainWindow.show();
 
 	return app.exec();
