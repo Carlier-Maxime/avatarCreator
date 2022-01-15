@@ -1,5 +1,6 @@
 #include "MainWidget.h"
 #include "MainWindow.h"
+#include "Avatar.h"
 
 MainWidget::MainWidget(MainWindow *parent)
 {
@@ -20,6 +21,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	QPushButton *buttonGenerate = new QPushButton("Generate",this);
 	buttonGenerate->setStyleSheet("background-color: rgb(6,159,50)");
 	buttonGenerate->setFixedSize(w*0.25,h*0.10);
+	connect(buttonGenerate, &QPushButton::clicked, this, &MainWidget::generateAvatar);
 	hbox->layout()->addWidget(buttonGenerate);
 	layout()->addWidget(hbox);
 	//quit
@@ -45,4 +47,10 @@ QWidget* MainWidget::genHbox()
 	hbox->layout()->setContentsMargins(0, 0, 0, 0);
 	hbox->layout()->setAlignment(Qt::AlignCenter);
 	return hbox;
+}
+
+void MainWidget::generateAvatar()
+{
+	Avatar avatar = Avatar();
+	avatar.save();
 }

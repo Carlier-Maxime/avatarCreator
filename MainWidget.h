@@ -10,6 +10,7 @@ private:
 	MainWindow* parent;
 	void quitEvent();
 	QWidget* genHbox();
+	void generateAvatar();
 
 public:
 	MainWidget(MainWindow *parent);
