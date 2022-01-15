@@ -36,13 +36,13 @@ void Avatar::randomAvatar()
 void Avatar::randomBg()
 {
 	QDir dir = QDir("assets/bg");
-	int n = rand() % (dir.count()-2);
-	bg = new QImage("assets/bg/"+QString::number(n)+".jpg");
+	int i = rand() % (dir.count()-2) + 2;
+	bg = new QImage(dir.path()+'/'+dir.entryList().at(i));
 }
 
 void Avatar::randomSkin()
 {
 	QDir dir = QDir("assets/skin");
-	int n = rand() % (dir.count()-2);
-	skin = new QImage("assets/skin/" + QString::number(n) + ".png");
+	int i = rand() % (dir.count()-2) + 2;
+	skin = new QImage(dir.path()+'/'+dir.entryList().at(i));
 }
