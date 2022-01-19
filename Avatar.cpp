@@ -4,6 +4,7 @@
 const QString Avatar::PATH_BG = Avatar::getSetting("PATH_BG");
 const QString Avatar::PATH_SKIN = Avatar::getSetting("PATH_SKIN");
 const QString Avatar::PATH_AVATARS = Avatar::getSetting("PATH_AVATARS");
+const int Avatar::PERCENTAGE_OneColorBg = Avatar::getSetting("PERCENTAGE_OneColorBg").toInt();
 
 const QString Avatar::getSetting(QString name)
 {
@@ -59,8 +60,20 @@ void Avatar::randomAvatar()
 void Avatar::randomBg()
 {
 	QDir dir = QDir(PATH_BG);
-	int i = rand() % (dir.count()-2) + 2;
-	bg = new QImage(dir.path()+'/'+dir.entryList().at(i));
+	int n = rand() % 101;
+	if (n <= PERCENTAGE_OneColorBg)
+	{
+		bg = new QImage(64, 64, QImage::Format_RGB32);
+		int r = rand() % 256;
+		int g = rand() % 256;
+		int b = rand() % 256;
+		bg->fill(QColor(r,g,b));
+	}
+	else
+	{
+		int i = rand() % (dir.count() - 2) + 2;
+		bg = new QImage(dir.path() + '/' + dir.entryList().at(i));
+	}
 }
 
 void Avatar::randomSkin()
