@@ -1,0 +1,3 @@
+PATH_BG = assets/bg
+PATH_SKIN = assets/skin
+PATH_AVATARS = avatars

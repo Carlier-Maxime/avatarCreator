@@ -1,6 +1,29 @@
 #include "Avatar.h"
 #include <random>
 
+const QString Avatar::PATH_BG = Avatar::getSetting("PATH_BG");
+const QString Avatar::PATH_SKIN = Avatar::getSetting("PATH_SKIN");
+const QString Avatar::PATH_AVATARS = Avatar::getSetting("PATH_AVATARS");
+
+const QString Avatar::getSetting(QString name)
+{
+	QFile file("settings.txt");
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return "../.";
+	QTextStream flux(&file);
+	while (!flux.atEnd())
+	{
+		QStringList line = flux.readLine().split(" ");
+		if (line.at(0) == name)
+		{
+			QString s = line.at(2);
+			file.close();
+			return s;
+		}
+	}
+	file.close();
+	return ".";
+}
+
 Avatar::Avatar()
 {
 	randomAvatar();
@@ -9,7 +32,7 @@ Avatar::Avatar()
 void Avatar::save()
 {
 	if (img==nullptr) return;
-	img->save("avatars/avatar.jpg");
+	img->save(PATH_AVATARS+"/avatar.jpg");
 }
 
 void Avatar::create()
@@ -35,14 +58,14 @@ void Avatar::randomAvatar()
 
 void Avatar::randomBg()
 {
-	QDir dir = QDir("assets/bg");
+	QDir dir = QDir(PATH_BG);
 	int i = rand() % (dir.count()-2) + 2;
 	bg = new QImage(dir.path()+'/'+dir.entryList().at(i));
 }
 
 void Avatar::randomSkin()
 {
-	QDir dir = QDir("assets/skin");
+	QDir dir = QDir(PATH_SKIN);
 	int i = rand() % (dir.count()-2) + 2;
 	skin = new QImage(dir.path()+'/'+dir.entryList().at(i));
 }
