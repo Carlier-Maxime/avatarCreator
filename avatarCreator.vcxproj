@@ -91,12 +91,14 @@
     <ClCompile Include="MainWidget.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Skin.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Avatar.h" />
     <ClInclude Include="MainWidget.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Skin.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
