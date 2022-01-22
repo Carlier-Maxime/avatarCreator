@@ -1,0 +1,1 @@
+ce dossier est celui par défaut pour save les avatars.
