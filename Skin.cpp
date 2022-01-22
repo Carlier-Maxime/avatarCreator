@@ -43,9 +43,9 @@ QColor Skin::randomColor(const QList<QColor>* listColors)
 	int g = listColors->at(j).green();
 	int b = listColors->at(j).blue();
 	if (pas == 0) return QColor(r, g, b);
-	int incR = (listColors->at(j + 1).red() - r) / PAS_COLOR;
-	int incG = (listColors->at(j + 1).green() - g) / PAS_COLOR;
-	int incB = (listColors->at(j + 1).blue() - b) / PAS_COLOR;
+	float incR = ((listColors->at(j + 1).red() - r) * 1.0)/ PAS_COLOR;
+	float incG = ((listColors->at(j + 1).green() - g) * 1.0)/ PAS_COLOR;
+	float incB = ((listColors->at(j + 1).blue() - b) * 1.0)/ PAS_COLOR;
 	return QColor(r + incR * pas, g + incG * pas, b + incB * pas);
 }
 
