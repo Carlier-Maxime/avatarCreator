@@ -28,5 +28,8 @@ const QString Utils::getSetting(QString name)
 
 QColor Utils::darkenColor(QColor color, int light)
 {
-	return color;
+	int r = (light * color.red()) / 255;
+	int g = (light * color.green()) / 255;
+	int b = (light * color.blue()) / 255;
+	return QColor(r,g,b);
 }
