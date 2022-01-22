@@ -3,3 +3,4 @@ PATH_SKIN = assets/skin
 PATH_AVATARS = avatars
 
 PERCENTAGE_OneColorBg = 30
+PERCENTAGE_ALIEN = 3

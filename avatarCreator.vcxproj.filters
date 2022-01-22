@@ -35,6 +35,9 @@
     <ClCompile Include="Avatar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Skin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainWindow.h">
@@ -44,6 +47,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Avatar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
