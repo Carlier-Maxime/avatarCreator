@@ -4,6 +4,7 @@
 class Avatar
 {
 private:
+	static const QString PATH_MAIN;
 	static const QString getSetting(QString name);
 	static const QString PATH_BG;
 	static const QString PATH_SKIN;

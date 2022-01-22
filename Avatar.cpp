@@ -1,15 +1,16 @@
 #include "Avatar.h"
 #include <random>
 
-const QString Avatar::PATH_BG = Avatar::getSetting("PATH_BG");
-const QString Avatar::PATH_SKIN = Avatar::getSetting("PATH_SKIN");
-const QString Avatar::PATH_AVATARS = Avatar::getSetting("PATH_AVATARS");
+const QString Avatar::PATH_MAIN = "./";
+const QString Avatar::PATH_BG = PATH_MAIN+Avatar::getSetting("PATH_BG");
+const QString Avatar::PATH_SKIN = PATH_MAIN + Avatar::getSetting("PATH_SKIN");
+const QString Avatar::PATH_AVATARS = PATH_MAIN + Avatar::getSetting("PATH_AVATARS");
 const int Avatar::PERCENTAGE_OneColorBg = Avatar::getSetting("PERCENTAGE_OneColorBg").toInt();
 
 const QString Avatar::getSetting(QString name)
 {
-	QFile file("settings.txt");
-	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return "../.";
+	QFile file(PATH_MAIN+"settings.txt");
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return PATH_MAIN;
 	QTextStream flux(&file);
 	while (!flux.atEnd())
 	{
@@ -22,7 +23,7 @@ const QString Avatar::getSetting(QString name)
 		}
 	}
 	file.close();
-	return ".";
+	return PATH_MAIN;
 }
 
 Avatar::Avatar()
