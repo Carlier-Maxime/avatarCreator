@@ -7,15 +7,22 @@ const QString Avatar::PATH_SKIN = Utils::getSetting("PATH_SKIN",true);
 const QString Avatar::PATH_AVATARS = Utils::getSetting("PATH_AVATARS",true);
 const int Avatar::PERCENTAGE_OneColorBg = Utils::getSetting("PERCENTAGE_OneColorBg").toInt();
 
+Avatar::Avatar(QString name)
+{
+	this->name = name;
+	randomAvatar();
+}
+
 Avatar::Avatar()
 {
-	randomAvatar();
+	name = "avatar";
+	Avatar(name);
 }
 
 void Avatar::save()
 {
 	if (img==nullptr) return;
-	img->save(PATH_AVATARS+"/avatar.jpg");
+	img->save(PATH_AVATARS+"/"+name+".jpg");
 }
 
 void Avatar::create()

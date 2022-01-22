@@ -51,6 +51,9 @@ QWidget* MainWidget::genHbox()
 
 void MainWidget::generateAvatar()
 {
-	Avatar avatar = Avatar();
-	avatar.save();
+	for  (int i = 0; i < 100; i++)
+	{
+		Avatar avatar = Avatar(QString::number(i));
+		avatar.save();
+	}
 }

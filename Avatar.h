@@ -10,6 +10,7 @@ private:
 	static const QString PATH_AVATARS;
 	static const int PERCENTAGE_OneColorBg;
 
+	QString name;
 	QImage* img;
 	QImage* bg;
 	Skin* skin;
@@ -20,6 +21,7 @@ private:
 	void create();
 
 public:
+	Avatar(QString name);
 	Avatar();
 	~Avatar();
 
