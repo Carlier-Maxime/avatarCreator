@@ -25,3 +25,8 @@ const QString Utils::getSetting(QString name)
 {
 	return getSetting(name, false);
 }
+
+QColor Utils::darkenColor(QColor color, int light)
+{
+	return color;
+}

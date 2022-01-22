@@ -9,16 +9,17 @@ private:
 	static const QList<QColor> listHumanColors;
 	static const QList<QColor> listAlienColors;
 	static const int PAS_COLOR;
-	static const int PERCETAGE_ALIEN;
+	static const int PERCENTAGE_ALIEN;
 
 	QImage original;
 	QImage img;
 	QColor baseColor;
 	bool alien;
 
-	void randomColor();
-	void randomHumanColor();
-	void randomAlienColor();
+	QColor randomColor();
+	QColor randomColor(const QList<QColor>* listColors);
+	QColor randomHumanColor();
+	QColor randomAlienColor();
 	void paint();
 
 public:
