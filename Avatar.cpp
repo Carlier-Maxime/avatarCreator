@@ -26,8 +26,8 @@ void Avatar::create()
 	{
 		for (int j=0; j<64; j++)
 		{
-			if (skin->pixelColor(i,j).alpha()==0) img->setPixelColor(i, j, bg->pixelColor(i, j));
-			else img->setPixelColor(i, j, skin->pixelColor(i, j));
+			if (skin->getImg().pixelColor(i,j).alpha()==0) img->setPixelColor(i, j, bg->pixelColor(i, j));
+			else img->setPixelColor(i, j, skin->getImg().pixelColor(i, j));
 		}
 	}
 }
@@ -62,5 +62,5 @@ void Avatar::randomSkin()
 {
 	QDir dir = QDir(PATH_SKIN);
 	int i = rand() % (dir.count()-2) + 2;
-	skin = new QImage(dir.path()+'/'+dir.entryList().at(i));
+	skin = new Skin(QImage(dir.path()+'/'+dir.entryList().at(i)));
 }

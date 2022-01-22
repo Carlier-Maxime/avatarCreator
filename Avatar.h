@@ -1,5 +1,6 @@
 #pragma once
 #include <QtGui>
+#include "Skin.h"
 
 class Avatar
 {
@@ -11,7 +12,7 @@ private:
 
 	QImage* img;
 	QImage* bg;
-	QImage* skin;
+	Skin* skin;
 
 	void randomAvatar();
 	void randomBg();
