@@ -64,3 +64,10 @@ void Avatar::randomSkin()
 	int i = rand() % (dir.count()-2) + 2;
 	skin = new Skin(QImage(dir.path()+'/'+dir.entryList().at(i)));
 }
+
+Avatar::~Avatar()
+{
+	delete img;
+	delete bg;
+	delete skin;
+}

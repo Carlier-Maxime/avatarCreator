@@ -21,6 +21,8 @@ private:
 
 public:
 	Avatar();
+	~Avatar();
+
 	void save();
 };
 
