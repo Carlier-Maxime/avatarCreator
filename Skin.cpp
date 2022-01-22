@@ -70,7 +70,7 @@ void Skin::paint()
 			if (color.alpha()!=0)
 			{
 				int light = (color.red() + color.green() + color.blue()) / 3;
-				img.setPixelColor(j, i, Utils::darkenColor(color, light));
+				img.setPixelColor(j, i, Utils::darkenColor(baseColor, light));
 			}
 		}
 	}
