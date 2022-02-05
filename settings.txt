@@ -2,5 +2,5 @@ PATH_BG = assets/bg
 PATH_SKIN = assets/skin
 PATH_AVATARS = avatars
 
-PERCENTAGE_OneColorBg = 30
-PERCENTAGE_ALIEN = 3
+PERCENTAGE_OneColorBg = 48
+PERCENTAGE_ALIEN = 1

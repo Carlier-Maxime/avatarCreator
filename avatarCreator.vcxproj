@@ -87,6 +87,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Avatar.cpp" />
+    <ClCompile Include="Feature.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWidget.cpp" />
     <ClCompile Include="MainWindow.cpp" />
@@ -95,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Avatar.h" />
+    <ClInclude Include="Feature.h" />
     <ClInclude Include="MainWidget.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Skin.h" />
