@@ -21,7 +21,7 @@ const int Skin::PAS_COLOR = 100;
 Skin::Skin(QString name)
 {
 	this->name = name;
-	QImage img = QImage(Utils::PATH_SKIN+'/'+name);
+	QImage img = QImage(Utils::PATH_SKIN+'/'+name+".png");
 	original = img;
 	this->img = original.copy();
 	alien = ((rand() % 101) <= Utils::PERCENTAGE_ALIEN) ? true : false;
@@ -89,6 +89,6 @@ bool Skin::isAlien()
 
 QString Skin::getInfoFeature(QString name, Type type)
 {
-	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+name);
+	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+name+".bin");
 	return "";
 }

@@ -64,7 +64,7 @@ void Avatar::randomSkin()
 {
 	QDir dir = QDir(Utils::PATH_SKIN);
 	int i = rand() % (dir.count()-2) + 2;
-	skin = new Skin(dir.entryList().at(i));
+	skin = new Skin(dir.entryList().at(i).split(".").at(0));
 }
 
 Avatar::~Avatar()
