@@ -2,6 +2,7 @@
 #include <QList>
 #include <QColor>
 #include <QImage>
+#include "Type.h"
 
 class Skin
 {
@@ -9,8 +10,8 @@ private:
 	static const QList<QColor> listHumanColors;
 	static const QList<QColor> listAlienColors;
 	static const int PAS_COLOR;
-	static const int PERCENTAGE_ALIEN;
 
+	QString name;
 	QImage original;
 	QImage img;
 	QColor baseColor;
@@ -21,11 +22,13 @@ private:
 	QColor randomHumanColor();
 	QColor randomAlienColor();
 	void paint();
+	QString getInfoFeature(QString name, Type type);
 
 public:
-	Skin(QImage img);
+	Skin(QString name);
 
 	QImage getImg();
 	bool isAlien();
+
 };
 

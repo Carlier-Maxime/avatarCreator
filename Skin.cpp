@@ -17,13 +17,14 @@ const QList<QColor> Skin::listAlienColors =
 	QColor(141,52,52)
 };
 const int Skin::PAS_COLOR = 100;
-const int Skin::PERCENTAGE_ALIEN = Utils::getSetting("PERCENTAGE_ALIEN").toInt();
 
-Skin::Skin(QImage img)
+Skin::Skin(QString name)
 {
+	this->name = name;
+	QImage img = QImage(Utils::PATH_SKIN+'/'+name);
 	original = img;
 	this->img = original.copy();
-	alien = ((rand() % 101) <= PERCENTAGE_ALIEN) ? true : false;
+	alien = ((rand() % 101) <= Utils::PERCENTAGE_ALIEN) ? true : false;
 	baseColor = randomColor();
 	paint();
 }
@@ -84,4 +85,10 @@ QImage Skin::getImg()
 bool Skin::isAlien()
 {
 	return alien;
+}
+
+QString Skin::getInfoFeature(QString name, Type type)
+{
+	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+name);
+	return "";
 }

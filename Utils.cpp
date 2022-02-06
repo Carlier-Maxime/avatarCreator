@@ -1,6 +1,13 @@
 #include "Utils.h"
 
 const QString Utils::PATH_MAIN = "./";
+const QString Utils::PATH_BG = Utils::getSetting("PATH_BG", true);
+const QString Utils::PATH_SKIN = Utils::getSetting("PATH_SKIN", true);
+const QString Utils::PATH_AVATARS = Utils::getSetting("PATH_AVATARS", true);
+
+const int Utils::PERCENTAGE_OneColorBg = Utils::getSetting("PERCENTAGE_OneColorBg").toInt();
+const int Utils::PERCENTAGE_ALIEN = Utils::getSetting("PERCENTAGE_ALIEN").toInt();
+
 const QString Utils::getSetting(QString name, bool toPath)
 {
 	QFile file(PATH_MAIN + "settings.txt");

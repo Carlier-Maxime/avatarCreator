@@ -100,6 +100,7 @@
     <ClInclude Include="MainWidget.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Skin.h" />
+    <ClInclude Include="Type.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

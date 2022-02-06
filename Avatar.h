@@ -5,11 +5,6 @@
 class Avatar
 {
 private:
-	static const QString PATH_BG;
-	static const QString PATH_SKIN;
-	static const QString PATH_AVATARS;
-	static const int PERCENTAGE_OneColorBg;
-
 	QString name;
 	QImage* img;
 	QImage* bg;
