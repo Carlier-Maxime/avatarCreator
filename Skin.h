@@ -22,7 +22,7 @@ private:
 	QColor randomHumanColor();
 	QColor randomAlienColor();
 	void paint();
-	int getPosInfoFeature(QString name, Type type);
+	QList<int> managementFeature(QString name, Type type, bool save, QPoint p, int rotate);
 
 public:
 	Skin(QString name);

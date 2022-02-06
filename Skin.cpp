@@ -87,57 +87,55 @@ bool Skin::isAlien()
 	return alien;
 }
 
-int Skin::getPosInfoFeature(QString name, Type type)
+QList<int> Skin::managementFeature(QString name, Type type, bool save, QPoint point, int rotate)
 {
 	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+this->name+".bin");
-	file.open(QIODevice::ReadOnly);
-	QDataStream in(&file);
+	file.open(QIODevice::ReadWrite);
+	QDataStream flux(&file);
 	QString nameRead;
 	int intType;
-	int a, b, c;
-	while (!in.atEnd()) {
-		in >> nameRead >> intType;
-		if (nameRead == name && intType == static_cast<int>(type)) return file.pos();
-		else
+	int x, y, r;
+	bool found = false;
+	while (!flux.atEnd()) {
+		flux >> nameRead >> intType;
+		if (nameRead == name && intType == static_cast<int>(type))
 		{
-			in >> a >> b >> c;
+			found = true;
+			break;
 		}
+		flux >> x >> y >> r;
+	}
+	if (save)
+	{
+		if (!found) flux << name << static_cast<int>(type);
+		flux << point.x() << point.y() << rotate;
+		file.close();
+		return QList<int>({ point.x(), point.y(), rotate });
+	}
+	else
+	{
+		if (found) flux >> x >> y >> r;
+		else { x = 0; y = 0; r = 0; }
+		file.close();
+		return QList<int>({x,y,r});
 	}
 	file.close();
-	return -1;
+	return QList<int>();
 }
 
 void Skin::saveInfoFeature(QString name, Type type, QPoint p, int rotate)
 {
-	int pos = getPosInfoFeature(name, type);
-	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
-	file.open(QIODevice::WriteOnly);
-	QDataStream out(&file);
-	if (pos >= 0) file.seek(pos);
-	else out << name << static_cast<int>(type);
-	out << p.x() << p.y() << rotate;
+	managementFeature(name, type, true, p, rotate);
 }
 
 QPoint Skin::getPosFeature(QString name, Type type)
 {
-	int pos = getPosInfoFeature(name, type);
-	if (pos < 0) return QPoint();
-	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
-	file.open(QIODevice::ReadOnly);
-	QDataStream in(&file);
-	int x, y;
-	in >> x >> y;
-	return QPoint(x, y);
+	QList<int> list = managementFeature(name,type,false,QPoint(),0);
+	return QPoint(list.at(0), list.at(1));
 }
 
 int Skin::getRotateFeature(QString name, Type type)
 {
-	int pos = getPosInfoFeature(name, type);
-	if (pos < 0) return 0;
-	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
-	file.open(QIODevice::ReadOnly);
-	QDataStream in(&file);
-	int r;
-	in >> r >> r >> r;
-	return r;
+	QList<int> list = managementFeature(name, type, false, QPoint(), 0);
+	return list.at(2);
 }
