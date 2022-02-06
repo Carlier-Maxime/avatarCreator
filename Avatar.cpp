@@ -63,8 +63,10 @@ void Avatar::randomBg()
 void Avatar::randomSkin()
 {
 	QDir dir = QDir(Utils::PATH_SKIN);
-	int i = rand() % (dir.count()-2) + 2;
-	skin = new Skin(dir.entryList().at(i).split(".").at(0));
+	QStringList list = dir.entryList();
+	list.removeAll("bin");
+	int i = rand() % (list.count()-2) + 2;
+	skin = new Skin(list.at(i).split(".").at(0));
 }
 
 Avatar::~Avatar()
