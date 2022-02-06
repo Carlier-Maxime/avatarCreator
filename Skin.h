@@ -22,7 +22,7 @@ private:
 	QColor randomHumanColor();
 	QColor randomAlienColor();
 	void paint();
-	QString getInfoFeature(QString name, Type type);
+	int getPosInfoFeature(QString name, Type type);
 
 public:
 	Skin(QString name);

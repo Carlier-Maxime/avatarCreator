@@ -87,8 +87,12 @@ bool Skin::isAlien()
 	return alien;
 }
 
-QString Skin::getInfoFeature(QString name, Type type)
+int Skin::getPosInfoFeature(QString name, Type type)
 {
-	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+name+".bin");
-	return "";
+	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+this->name+".bin");
+	while (file.isReadable()) {
+		qDebug() << "POSITION FILE BIN => " + file.pos();
+		file.read(1);
+	}
+	return -1;
 }
