@@ -90,9 +90,29 @@ bool Skin::isAlien()
 int Skin::getPosInfoFeature(QString name, Type type)
 {
 	QFile file = QFile(Utils::PATH_SKIN+"/bin/"+this->name+".bin");
+	if (!file.exists()) return -1;
+	file.open(QIODevice::ReadOnly);
 	while (file.isReadable()) {
 		qDebug() << "POSITION FILE BIN => " + file.pos();
 		file.read(1);
 	}
+	file.close();
 	return -1;
+}
+
+void Skin::saveInfoFeature(QString name, Type type, QPoint p, int rotate)
+{
+	int pos = getPosInfoFeature(name, type);
+	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
+	file.open(QIODevice::WriteOnly);
+	QByteArray bytes;
+	if (pos > 0) file.seek(pos);
+	else
+	{
+		file.write(name.toUtf8());
+		file.write(bytes.setNum(static_cast<int>(type)));
+	}
+	file.write(bytes.setNum(p.x()));
+	file.write(bytes.setNum(p.y()));
+	file.write(bytes.setNum(rotate));
 }

@@ -29,6 +29,6 @@ public:
 
 	QImage getImg();
 	bool isAlien();
-
+	void saveInfoFeature(QString name, Type type, QPoint p, int rotate);
 };
 
