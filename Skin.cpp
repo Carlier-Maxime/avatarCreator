@@ -117,3 +117,27 @@ void Skin::saveInfoFeature(QString name, Type type, QPoint p, int rotate)
 	else out << name << static_cast<int>(type);
 	out << p.x() << p.y() << rotate;
 }
+
+QPoint Skin::getPosFeature(QString name, Type type)
+{
+	int pos = getPosInfoFeature(name, type);
+	if (pos < 0) return QPoint();
+	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
+	file.open(QIODevice::ReadOnly);
+	QDataStream in(&file);
+	int x, y;
+	in >> x >> y;
+	return QPoint(x, y);
+}
+
+int Skin::getRotateFeature(QString name, Type type)
+{
+	int pos = getPosInfoFeature(name, type);
+	if (pos < 0) return 0;
+	QFile file = QFile(Utils::PATH_SKIN + "/bin/" + this->name + ".bin");
+	file.open(QIODevice::ReadOnly);
+	QDataStream in(&file);
+	int r;
+	in >> r >> r >> r;
+	return r;
+}
