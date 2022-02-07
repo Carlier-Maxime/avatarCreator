@@ -11,6 +11,7 @@ private:
 	void quitEvent();
 	QWidget* genHbox();
 	void generateAvatar();
+	void newAssets();
 
 public:
 	MainWidget(MainWindow *parent);

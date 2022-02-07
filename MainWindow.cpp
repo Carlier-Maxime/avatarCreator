@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow()
 {
-	setFixedSize(400,600);
+	setFixedSize(420,600);
 	setStyleSheet("background-color: rgb(23, 93, 182)");
 	setCentralWidget(new MainWidget(this));
 }

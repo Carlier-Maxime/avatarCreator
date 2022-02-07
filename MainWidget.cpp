@@ -24,6 +24,14 @@ MainWidget::MainWidget(MainWindow *parent)
 	connect(buttonGenerate, &QPushButton::clicked, this, &MainWidget::generateAvatar);
 	hbox->layout()->addWidget(buttonGenerate);
 	layout()->addWidget(hbox);
+	//new assets
+	hbox = genHbox();
+	QPushButton* buttonNewAssets = new QPushButton("New Assets", this);
+	buttonNewAssets->setStyleSheet("background-color: rgb(6, 159, 50)");
+	buttonNewAssets->setFixedSize(w * 0.25, h *0.10);
+	connect(buttonNewAssets, &QPushButton::clicked, this, &MainWidget::newAssets);
+	hbox->layout()->addWidget(buttonNewAssets);
+	layout()->addWidget(hbox);
 	//quit
 	hbox = genHbox();
 	QPushButton* buttonQuit = new QPushButton("Quit",this);
@@ -56,4 +64,9 @@ void MainWidget::generateAvatar()
 		Avatar avatar = Avatar(QString::number(i));
 		avatar.save();
 	}
+}
+
+void MainWidget::newAssets()
+{
+	qDebug() << "CLIKED";
 }
