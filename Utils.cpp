@@ -8,6 +8,9 @@ const QString Utils::PATH_AVATARS = Utils::getSetting("PATH_AVATARS", true);
 const int Utils::PERCENTAGE_OneColorBg = Utils::getSetting("PERCENTAGE_OneColorBg").toInt();
 const int Utils::PERCENTAGE_ALIEN = Utils::getSetting("PERCENTAGE_ALIEN").toInt();
 
+const QColor Utils::firstColor = QColor(6,159,50);
+const QColor Utils::secondColor = QColor(23,93,182);
+
 const QString Utils::getSetting(QString name, bool toPath)
 {
 	QFile file(PATH_MAIN + "settings.txt");
@@ -49,4 +52,14 @@ QWidget* Utils::HBox(QWidget* parent)
 	hbox->layout()->setContentsMargins(0, 0, 0, 0);
 	hbox->layout()->setAlignment(Qt::AlignCenter);
 	return hbox;
+}
+
+const QString Utils::strFirstColor()
+{
+	return QString("rgb(%1,%2,%3)").arg(firstColor.red()).arg(firstColor.green()).arg(firstColor.blue());
+}
+
+const QString Utils::strSecondColor()
+{
+	return QString("rgb(%1,%2,%3)").arg(secondColor.red()).arg(secondColor.green()).arg(secondColor.blue());
 }

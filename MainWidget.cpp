@@ -12,7 +12,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	// title
 	title = new QLabel(this);
 	title->setText("Avatar Creator ");
-	title->setStyleSheet("color: rgb(6,159,50)");
+	title->setStyleSheet("color: "+Utils::strFirstColor());
 	title->setFont(QFont("Comic Sans MS",40,QFont::Bold));
 	title->setAlignment(Qt::AlignCenter);
 	title->setFixedSize(w, h*0.10);
@@ -20,7 +20,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	//generate
 	QWidget* hbox = Utils::HBox(parent);
 	QPushButton *buttonGenerate = new QPushButton("Generate",this);
-	buttonGenerate->setStyleSheet("background-color: rgb(6,159,50)");
+	buttonGenerate->setStyleSheet("background-color: "+Utils::strFirstColor());
 	buttonGenerate->setFixedSize(w*0.25,h*0.10);
 	connect(buttonGenerate, &QPushButton::clicked, this, &MainWidget::generateAvatar);
 	hbox->layout()->addWidget(buttonGenerate);
@@ -28,7 +28,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	//new assets
 	hbox = Utils::HBox(parent);
 	QPushButton* buttonNewAssets = new QPushButton("New Assets", this);
-	buttonNewAssets->setStyleSheet("background-color: rgb(6, 159, 50)");
+	buttonNewAssets->setStyleSheet("background-color: " + Utils::strFirstColor());
 	buttonNewAssets->setFixedSize(w * 0.25, h *0.10);
 	connect(buttonNewAssets, &QPushButton::clicked, this, &MainWidget::newAssets);
 	hbox->layout()->addWidget(buttonNewAssets);
@@ -36,7 +36,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	//quit
 	hbox = Utils::HBox(parent);
 	QPushButton* buttonQuit = new QPushButton("Quit",this);
-	buttonQuit->setStyleSheet("background-color: rgb(6,159,50)");
+	buttonQuit->setStyleSheet("background-color: " + Utils::strFirstColor());
 	buttonQuit->setFixedSize(w * 0.25, h * 0.10);
 	connect(buttonQuit, &QPushButton::clicked, this, &MainWidget::quitEvent);
 	hbox->layout()->addWidget(buttonQuit);
