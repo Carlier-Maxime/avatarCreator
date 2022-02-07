@@ -1,6 +1,7 @@
 #include "MainWidget.h"
 #include "MainWindow.h"
 #include "Avatar.h"
+#include "Utils.h"
 
 MainWidget::MainWidget(MainWindow *parent)
 {
@@ -17,7 +18,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	title->setFixedSize(w, h*0.10);
 	layout()->addWidget(title);
 	//generate
-	QWidget* hbox = genHbox();
+	QWidget* hbox = Utils::genHbox(parent);
 	QPushButton *buttonGenerate = new QPushButton("Generate",this);
 	buttonGenerate->setStyleSheet("background-color: rgb(6,159,50)");
 	buttonGenerate->setFixedSize(w*0.25,h*0.10);
@@ -25,7 +26,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	hbox->layout()->addWidget(buttonGenerate);
 	layout()->addWidget(hbox);
 	//new assets
-	hbox = genHbox();
+	hbox = Utils::genHbox(parent);
 	QPushButton* buttonNewAssets = new QPushButton("New Assets", this);
 	buttonNewAssets->setStyleSheet("background-color: rgb(6, 159, 50)");
 	buttonNewAssets->setFixedSize(w * 0.25, h *0.10);
@@ -33,7 +34,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	hbox->layout()->addWidget(buttonNewAssets);
 	layout()->addWidget(hbox);
 	//quit
-	hbox = genHbox();
+	hbox = Utils::genHbox(parent);
 	QPushButton* buttonQuit = new QPushButton("Quit",this);
 	buttonQuit->setStyleSheet("background-color: rgb(6,159,50)");
 	buttonQuit->setFixedSize(w * 0.25, h * 0.10);
@@ -45,16 +46,6 @@ MainWidget::MainWidget(MainWindow *parent)
 void MainWidget::quitEvent()
 {
 	exit(0);
-}
-
-QWidget* MainWidget::genHbox()
-{
-	QWidget *hbox = new QWidget();
-	hbox->setFixedWidth(parent->width());
-	hbox->setLayout(new QHBoxLayout());
-	hbox->layout()->setContentsMargins(0, 0, 0, 0);
-	hbox->layout()->setAlignment(Qt::AlignCenter);
-	return hbox;
 }
 
 void MainWidget::generateAvatar()

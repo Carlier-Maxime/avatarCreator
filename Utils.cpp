@@ -40,3 +40,13 @@ QColor Utils::darkenColor(QColor color, int light)
 	int b = (light * color.blue()) / 255;
 	return QColor(r,g,b);
 }
+
+QWidget* Utils::genHbox(QWidget* parent)
+{
+	QWidget* hbox = new QWidget();
+	hbox->setFixedWidth(parent->width());
+	hbox->setLayout(new QHBoxLayout());
+	hbox->layout()->setContentsMargins(0, 0, 0, 0);
+	hbox->layout()->setAlignment(Qt::AlignCenter);
+	return hbox;
+}

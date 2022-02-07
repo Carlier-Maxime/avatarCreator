@@ -9,7 +9,6 @@ private:
 	QLabel *title;
 	MainWindow* parent;
 	void quitEvent();
-	QWidget* genHbox();
 	void generateAvatar();
 	void newAssets();
 
