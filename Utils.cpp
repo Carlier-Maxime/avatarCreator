@@ -41,7 +41,7 @@ QColor Utils::darkenColor(QColor color, int light)
 	return QColor(r,g,b);
 }
 
-QWidget* Utils::genHbox(QWidget* parent)
+QWidget* Utils::HBox(QWidget* parent)
 {
 	QWidget* hbox = new QWidget();
 	hbox->setFixedWidth(parent->width());

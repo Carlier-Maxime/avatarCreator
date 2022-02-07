@@ -16,5 +16,6 @@ public:
 	static const QString getSetting(QString name, bool toPath);
 	static const QString getSetting(QString name);
 	static QColor darkenColor(QColor color, int light);
-	static QWidget* genHbox(QWidget* parent);
+	static QWidget* HBox(QWidget* parent);
+
 };

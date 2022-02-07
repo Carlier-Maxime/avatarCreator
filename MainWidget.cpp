@@ -18,7 +18,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	title->setFixedSize(w, h*0.10);
 	layout()->addWidget(title);
 	//generate
-	QWidget* hbox = Utils::genHbox(parent);
+	QWidget* hbox = Utils::HBox(parent);
 	QPushButton *buttonGenerate = new QPushButton("Generate",this);
 	buttonGenerate->setStyleSheet("background-color: rgb(6,159,50)");
 	buttonGenerate->setFixedSize(w*0.25,h*0.10);
@@ -26,7 +26,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	hbox->layout()->addWidget(buttonGenerate);
 	layout()->addWidget(hbox);
 	//new assets
-	hbox = Utils::genHbox(parent);
+	hbox = Utils::HBox(parent);
 	QPushButton* buttonNewAssets = new QPushButton("New Assets", this);
 	buttonNewAssets->setStyleSheet("background-color: rgb(6, 159, 50)");
 	buttonNewAssets->setFixedSize(w * 0.25, h *0.10);
@@ -34,7 +34,7 @@ MainWidget::MainWidget(MainWindow *parent)
 	hbox->layout()->addWidget(buttonNewAssets);
 	layout()->addWidget(hbox);
 	//quit
-	hbox = Utils::genHbox(parent);
+	hbox = Utils::HBox(parent);
 	QPushButton* buttonQuit = new QPushButton("Quit",this);
 	buttonQuit->setStyleSheet("background-color: rgb(6,159,50)");
 	buttonQuit->setFixedSize(w * 0.25, h * 0.10);
